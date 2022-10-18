@@ -1,0 +1,60 @@
+SQL(Structured Query Language):-
+    #SQL Command Categories:-
+      1)Data Definition Language(DDL):-DDL changes the structure of the table like creating a table, deleting a table, altering a table, etc.
+        All the command of DDL are auto-committed that means it permanently save all the changes in the database.
+            Some commands that come under DDL:
+               ->CREATE:-CREATE TABLE TABLE_NAME (COLUMN_NAME DATATYPES[,....]);
+               ->ALTER:-ALTER TABLE table_name ADD column_name COLUMN-definition;   
+               ->DROP:- DROP TABLE table_name;  
+               ->TRUNCATE:-TRUNCATE TABLE table_name;
+    # Key in DataBase:-
+          1)Candidate key
+          2)Super Key
+          3)Primary key
+          4)Alternate key
+          5)Forign key
+    # Constraint in Database:-
+          1) NOT NULL
+          2) UNIQUE
+          3) CHECK
+          4) DEFAULT
+          5) INDEX
+    #sql server data types:-
+         ->exact numeric
+         ->approx. numeric
+         ->date and time
+         ->character strings
+         ->unicode character strings
+         ->binary strings
+         ->other data types
+  
+      2) Data Manipulation Language(DML):-DML commands are used to modify the database. 
+        It is responsible for all form of changes in the database.The command of DML is not auto-committed that means it can't permanently save all the changes in the database.
+             Some commands that come under DML:
+               ->INSERT:-INSERT INTO TABLE_NAME    
+                        (col1, col2, col3,.... col N)  
+                        VALUES (value1, value2, value3, .... valueN);  
+               ->UPDATE:-UPDATE table_name SET [column_name1= value1,...column_nameN = valueN] [WHERE CONDITION] 
+               ->DELETE:-DELETE: It is used to remove one or more row from a table.
+ 
+
+//SQL COMMAND
+CREATE DATABASE students;
+USE students;
+CREATE TABLE studentsinfo
+(
+StudentID int,
+StudentName  varchar(8000),
+ParentName varchar(8000),
+PhoneNumber bigint,
+);
+
+//DROP TABLE studentsinfo;
+//DROP DATABASE students;
+alter table studentsInfo add address varchar(8000);
+alter table studentsInfo drop column address;
+alter table studentsInfo add bloodGroup DATE;
+
+insert into studentsInfo values('01','Vanshika','Agrawal','9867543266');    
+truncate table studentsInfo;
+sp_rename 'studentsInfo','InfoStudents';
