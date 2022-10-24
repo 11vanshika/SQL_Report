@@ -58,3 +58,77 @@ alter table studentsInfo add bloodGroup DATE;
 insert into studentsInfo values('01','Vanshika','Agrawal','9867543266');    
 truncate table studentsInfo;
 sp_rename 'studentsInfo','InfoStudents';
+
+
+# PIVOT in SQL Server
+
+PIVOT relational operator converts data from row level to column level.
+PIVOT rotates a table-valued expression by turning the unique values from one column in the expression into multiple columns in the output.
+Using PIVOT operator, we can perform aggregate operation where we need them.
+
+-> Syntax:-
+            SELECT <non-pivoted column>,  
+             <list of pivoted column>  
+           FROM  
+              (<SELECT query  to produces the data>)  
+                     AS <alias name>  
+           PIVOT  
+            (
+              <aggregation function>(<column name>)  
+          FOR  
+            [<column name that  become column headers>]  
+              IN ( [list of  pivoted columns])  
+            ) AS <alias name  for  pivot table>   
+
+#IN Operator in SQL 
+The IN operator allows you to specify multiple values in a WHERE clause.
+The IN operator is a shorthand for multiple OR conditions.
+->Syntax:-
+    SELECT column_name(s)
+      FROM table_name
+       WHERE column_name IN (value1, value2, ...);
+
+
+# Variable Decleration in SQL
+  ->Syntax:-
+           DECLARE { @LOCAL_VARIABLE data_type [ = value ] }
+
+     Example:- DECLARE @variable_name int = 90;
+                 set @variable_name += 10;
+                 select @variable_name as example;
+
+# SubQuery in SQL:-
+       A Subquery or Inner query or a Nested query is a query within another SQL query and embedded within the WHERE clause.
+       A subquery is used to return data that will be used in the main query as a condition to further restrict the data to be retrieved.
+       Subqueries can be used with the SELECT, INSERT, UPDATE, and DELETE statements along with the operators like =, <, >, >=, <=, IN, BETWEEN, etc.
+ 
+ ->Syntax:- 
+          SELECT column_name [, column_name ]
+           FROM   table1 
+             WHERE  column_name OPERATOR
+            (SELECT column_name [, column_name ]
+               FROM table1 OR [, table2 ]);
+
+# SQL Clauses
+
+If you want to provide the SQL Query with some additional functionalities such as filtering the records, sorting the records,
+fetching the records, and grouping the records then you need to use the SQL Server Clauses along with the SQL Query.
+So, in simple words,we can say that SQL Server clauses are used to provide some additional functionalities.
+
+# Types of SQL clauses :
+      ->Where (Filtering the records in a table)
+      ->Order by clause (sorting the records in ascending or descending order)
+      ->Top n clause (Fetching top n records)
+      ->Group by clause (Grouping a set of rows)
+      ->Having Clause (Filtering the data like where clause)
+
+Where clause: 
+   Ex- SELECT * FROM Employee WHERE CITY = ‘MUMBAI’;
+Order clause:
+   Ex- SELECT * FROM Employee ORDER BY Name;
+Top n clause:
+   Ex- SELECT TOP (3) Name FROM Person ORDER BY Name;
+Group by clause:
+   Ex- SELECT Department, COUNT(*) AS TotalEmployee
+         FROM Employee 
+        GROUP BY Department
