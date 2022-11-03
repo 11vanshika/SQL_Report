@@ -178,4 +178,80 @@ Group by clause:
    Syntax:-
      SELECT column names
      FROM  TableA
-     CROSS JOIN TableB       
+     CROSS JOIN TableB     
+     
+     
+ -----------------SQL LOOP------------------
+SQL Server supports the WHILE loop. The execution of the statements can be controlled from within the WHILE block using BREAK and CONTINUE keywords.
+
+Syntax:- WHILE <condition>
+           SQL Statement | statement_block | BREAK | CONTINUE
+
+
+---------------Stored Procedure---------------
+A stored procedure is a prepared SQL code that you can save,so the code can be reused over and over again.
+
+Stored Procedure Syntax:-
+          CREATE PROCEDURE procedure_name
+            AS
+              sql_statement
+            GO;
+
+Execute a Stored Procedure:-
+           EXEC procedure_name; 
+
+-------------- Create View Statement ---------------
+ In SQL, a view is a virtual table based on the result-set of an SQL statement.
+ A view contains rows and columns, just like a real table. 
+ The fields in a view are fields from one or more real tables in the database.
+  
+Create View Syntax:-
+          CREATE VIEW view_name AS
+           SELECT column1, column2, ...
+           FROM table_name
+           WHERE condition;
+
+Execute View :-
+      Select * From View_Name;
+
+---------------------Function In Sql----------------
+
+Functions in SQL Server are the database objects that contains a set of SQL statements to perform a specific task. 
+A function accepts input parameters, perform actions, and then return the result. We should note that functions always return either a single value or a table.
+
+->SQL Server categorizes the functions into two types:
+
+1)System Functions :-Functions that are defined by the system are known as system functions.
+ The built-in functions save us time while performing the specific task. 
+ These types of functions usually work with the SQL SELECT statement to calculate values and manipulate data.
+
+2)User-Defined Functions:-Functions that are created by the user in the system database or a user-defined database are known as user-defined functions.
+ The UDF functions accept parameters, perform actions, and returns the result.
+
+  # SQL Server categorizes the user-defined functions mainly into two types:
+
+       i)Scalar Functions
+            Syntax:-
+                CREATE FUNCTION schema_name.function_name (parameter_list)  
+                    RETURNS data_type AS  
+                       BEGIN  
+                          statements  
+                       RETURN value  
+                    END  
+ 
+       ii)Table-Valued Functions:-
+              Syntax:-
+               CREATE FUNCTION fudf_GetEmployee()  
+                RETURNS TABLE  
+                  AS  
+                RETURN (SELECT * FROM Employee)  
+
+-------------------SQL Indexes-----------------
+  Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
+Syntax:-
+    CREATE INDEX index_name
+    ON table_name (column1, column2, ...);
+
+Syntax:-
+    CREATE UNIQUE INDEX index_name
+    ON table_name (column1, column2, ...);    
